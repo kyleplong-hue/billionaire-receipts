@@ -53,13 +53,12 @@
     .source-links a:hover { color:var(--red); }
     .archive-bar { margin-top:52px; padding-bottom:17px; display:flex; align-items:end; justify-content:space-between; gap:25px; border-bottom:1px solid var(--ink); }
     .archive-bar h2 { margin:0; font-size:24px; line-height:1; font-weight:700; letter-spacing:-.05em; }
-    .archive-grid { display:grid; grid-template-columns:minmax(0,1fr) 244px; gap:43px; align-items:start; }
+    .archive-grid { display:grid; grid-template-columns:minmax(0,1fr) 365px; gap:30px; align-items:start; }
     .archive-grid > div { min-width:0; }
-    .video-rail { border-left:1px solid var(--line); padding:23px 0 0 27px; }
+    .video-rail { border-left:1px solid var(--line); padding:23px 0 0 20px; }
     .video-rail h3 { margin:0 0 13px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
-    .video-stage { aspect-ratio:9/16; background:#eeeeeb; border:1px solid var(--line); display:flex; align-items:end; padding:18px; }
-    .video-stage p { margin:0; max-width:130px; font-size:22px; font-weight:600; letter-spacing:-.055em; line-height:1.13; }
-
+    .video-rail iframe { display:block; width:100%; height:630px; border:1px solid var(--line); background:#f3f3f1; }
+    .video-rail a { display:inline-block; margin-top:10px; font-size:11px; color:var(--muted); text-underline-offset:3px; }
     .search { width:230px; height:40px; border:0; border-bottom:1px solid #a5a59d; background:transparent; border-radius:0; color:var(--ink); font:13px var(--sans); outline:none; }
     .search:focus { border-bottom:2px solid var(--red); }
     .filters { display:flex; gap:8px; padding:21px 0 10px; overflow-x:auto; }
@@ -89,7 +88,7 @@
       .feature-right { border-left:0; border-top:1px solid var(--line); }
       .feature .quote-source { padding-top:28px; }
       .archive-grid { grid-template-columns:1fr; gap:0; }
-      .video-rail { border-left:0; padding:0 0 35px; max-width:220px; }
+      .video-rail { border-left:0; padding:0 0 35px; max-width:365px; }
     }
     @media (max-width:600px) {
       .shell { width:calc(100% - 36px); }
@@ -113,11 +112,11 @@
 </head>
 <body>
   <header class="topbar"><div class="shell">
-    <a class="brand" href="#top" aria-label="Bullshit by Billionaires, top of page">Bullshit by Billionaires<span style="color:var(--red)">.</span></a>
+    <a class="brand" href="#top" aria-label="Bullshit by Billionaires, top of page">B/B<span style="color:var(--red)">.</span></a>
     <nav class="top-right" aria-label="Primary"><a href="#archive">Archive ↗</a></nav>
   </div></header>
   <main class="shell" id="top">
-    <section class="intro" aria-labelledby="page-title"><h1 id="page-title">They said it. <span>Then this.</span></h1><p class="intro-copy">What they said, what happened, and the sources for both.</p></section>
+    <section class="intro" aria-labelledby="page-title"><h1 id="page-title">Bullshit by <span>Billionaires.</span></h1><p class="intro-copy">What they said, what happened, and the sources for both.</p></section>
     <div class="content-head"><span class="section-label">Latest</span><span class="count">October 2026</span></div>
     <article class="feature" aria-label="Featured receipt about Elon Musk's political spending">
       <div class="feature-left">
@@ -131,8 +130,7 @@
         <p>New filings show he gave <strong>$158 million</strong> in September to a Senate Republican super PAC. He has spent roughly <strong>$366 million</strong> this midterm cycle.</p>
         <figure class="headline-shot"><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer" aria-label="Read the CBS News report about Musk's Senate donations"><img src="./assets/cbs-oct16-headline.webp" alt="CBS News headline, October 16, 2026: Elon Musk donates over $150 million to Senate GOP group, assisting Ken Paxton"></a><figcaption>CBS News · Oct 16, 2026 — <a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
         <p class="sting">We all think he’s done quite enough. Apparently, he couldn’t help himself.</p>
-        <p style="font-size:13px; line-height:1.5; letter-spacing:0; color:var(--muted); margin-top:12px">SpaceX’s IPO made him the world’s first trillionaire. The money is enormous; the power looks harder to give up.</p>
-        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">$366m total ↗</a><a href="https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/" target="_blank" rel="noopener noreferrer">Trillionaire source ↗</a></div>
+        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">$366m total ↗</a></div>
       </div>
     </article>
     <section id="archive" aria-labelledby="archive-title">
@@ -145,7 +143,7 @@
         <li class="entry" data-tags="democracy" data-search="donald trump electoral college disaster democracy genius 2016"><div class="entry-index"><span>03 · Democracy</span> Donald Trump</div><div><blockquote>“The electoral college is a disaster for a democracy.”</blockquote><p class="attribution">November 2012 · Posted on Twitter</p></div><div class="entry-outcome"><small>After his 2016 win</small><p>“The Electoral College is actually genius.”</p><p class="sting">The system improved when it worked for him.</p><div class="source-links"><a href="https://x.com/realDonaldTrump/status/266038556504494082" target="_blank" rel="noopener noreferrer">Original post ↗</a><a href="https://www.cbsnews.com/news/donald-trump-calls-electoral-college-a-disaster-during-2012-tweetstorm/" target="_blank" rel="noopener noreferrer">The reversal ↗</a></div></div></li>
       </ol>
       <p class="empty" id="empty" role="status">No receipts match that search. Try another name or topic.</p>
-      </div><aside class="video-rail" aria-label="Future short-form video analysis"><h3>Quick analysis</h3><div class="video-stage"><p>Video soon.</p></div></aside></div>
+      </div><aside class="video-rail" aria-label="Example Instagram reel"><h3>Reel format example</h3><iframe src="https://www.instagram.com/p/DecT0WbAe4N/embed/" title="Ronan Farrow Instagram reel — format example, not a Musk analysis" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.instagram.com/p/DecT0WbAe4N/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></aside></div>
     </section>
   </main>
   <footer><div class="shell"><span><strong>Bullshit by Billionaires.</strong> Quotes and outcomes are sourced; commentary is ours.</span></div></footer>
