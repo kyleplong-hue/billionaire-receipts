@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafaf8">
+  <meta name="description" content="The receipts: what billionaires said, what happened next, and the sources to check both.">
+  <title>The Receipts — billionaires said it. Reality answered.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+    :root { --paper:#fafaf8; --white:#fff; --ink:#191919; --muted:#676761; --line:#deded8; --red:#c53f2c; --soft:#f3f1ec; --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+    a { color:inherit; }
+    a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
+    .shell { width:min(1120px,calc(100% - 56px)); margin:auto; }
+    .topbar { border-bottom:1px solid var(--line); background:rgba(250,250,248,.96); }
+    .topbar .shell { height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; gap:12px; align-items:center; text-decoration:none; font-weight:700; letter-spacing:-.045em; font-size:22px; white-space:nowrap; }
+    .brand-mark { width:21px; height:21px; display:inline-grid; place-items:center; border:2px solid var(--red); color:var(--red); border-radius:50%; font-size:15px; font-weight:700; transform:rotate(-14deg); line-height:1; }
+    .top-right { display:flex; align-items:center; gap:26px; color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .top-right a { text-decoration:none; }
+    .top-right a:hover { color:var(--red); }
+    .edition { border-left:1px solid var(--line); padding-left:24px; }
+    .intro { display:grid; grid-template-columns:1.35fr .65fr; gap:40px; padding:79px 0 60px; border-bottom:1px solid var(--ink); align-items:end; }
+    .eyebrow { margin:0 0 15px; color:var(--red); font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    h1 { margin:0; font:normal clamp(64px,9vw,122px)/.89 var(--serif); letter-spacing:-.065em; }
+    h1 em { color:var(--red); font-weight:400; }
+    .intro-copy { margin:0 0 4px auto; max-width:292px; color:#464641; font-size:17px; line-height:1.55; }
+    .intro-copy strong { color:var(--ink); font-weight:600; }
+    .content-head { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:31px 0 18px; }
+    .section-label { font-size:11px; text-transform:uppercase; letter-spacing:.16em; font-weight:700; }
+    .count { color:var(--muted); font-size:12px; }
+    .feature { background:var(--white); border:1px solid var(--line); display:grid; grid-template-columns:1.12fr .88fr; min-height:365px; }
+    .feature-left { padding:46px 48px 45px; display:flex; flex-direction:column; }
+    .story-meta { display:flex; align-items:center; gap:13px; color:var(--muted); text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:.15em; }
+    .story-meta .dot { width:4px; height:4px; background:#aaa; border-radius:50%; }
+    .feature h2 { margin:26px 0 0; max-width:660px; font:normal clamp(38px,4.1vw,57px)/1.02 var(--serif); letter-spacing:-.025em; }
+    .feature .quote-source { margin-top:auto; padding-top:26px; color:var(--muted); font-size:12px; }
+    .feature .quote-source strong { color:var(--ink); }
+    .feature-right { padding:46px 48px; background:var(--soft); border-left:1px solid var(--line); display:flex; flex-direction:column; }
+    .receipt-kicker { color:var(--red); font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
+    .feature-right p { margin:19px 0 0; font:normal 26px/1.21 var(--serif); }
+    .feature-right .sting { margin-top:24px; font:italic 27px/1.08 var(--serif); color:var(--red); }
+    .source-links { margin-top:auto; padding-top:23px; display:flex; flex-wrap:wrap; gap:8px 17px; }
+    .source-links a { color:#50504b; font-size:11px; font-weight:700; text-underline-offset:3px; }
+    .source-links a:hover { color:var(--red); }
+    .archive-bar { margin-top:64px; padding-bottom:18px; display:flex; align-items:end; justify-content:space-between; gap:25px; border-bottom:1px solid var(--ink); }
+    .archive-bar h2 { margin:0; font:normal 48px/.95 var(--serif); letter-spacing:-.035em; }
+    .archive-bar p { margin:9px 0 0; color:var(--muted); font-size:13px; }
+    .search { width:230px; height:40px; border:0; border-bottom:1px solid #a5a59d; background:transparent; border-radius:0; color:var(--ink); font:13px var(--sans); outline:none; }
+    .search:focus { border-bottom:2px solid var(--red); }
+    .filters { display:flex; gap:8px; padding:21px 0 10px; overflow-x:auto; }
+    .filter { border:1px solid var(--line); background:transparent; border-radius:100px; padding:9px 15px; color:#565650; font:700 11px var(--sans); cursor:pointer; white-space:nowrap; min-height:39px; }
+    .filter:hover,.filter.active { background:var(--ink); color:white; border-color:var(--ink); }
+    .feed { margin:0; padding:0 0 70px; list-style:none; }
+    .entry { display:grid; grid-template-columns:175px minmax(0,1fr) 280px; gap:34px; border-bottom:1px solid var(--line); padding:35px 0 37px; }
+    .entry-index { color:var(--muted); font-size:12px; line-height:1.55; }
+    .entry-index span { display:block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--ink); margin-bottom:5px; }
+    .entry blockquote { margin:0; font:normal 31px/1.14 var(--serif); letter-spacing:-.014em; }
+    .entry .attribution { margin:12px 0 0; color:var(--muted); font-size:12px; }
+    .entry-outcome { border-left:1px solid var(--line); padding-left:26px; display:flex; flex-direction:column; }
+    .entry-outcome small { color:var(--red); font-size:10px; text-transform:uppercase; letter-spacing:.16em; font-weight:700; }
+    .entry-outcome p { margin:8px 0 0; font-size:14px; line-height:1.5; }
+    .entry-outcome .sting { color:var(--red); font:italic 19px/1.17 var(--serif); margin-top:11px; }
+    .entry-outcome .source-links { padding-top:11px; }
+    .empty { display:none; padding:40px 0; color:var(--muted); }
+    footer { border-top:1px solid var(--ink); padding:28px 0 45px; color:var(--muted); font-size:11px; line-height:1.5; }
+    footer .shell { display:flex; justify-content:space-between; gap:24px; }
+    footer strong { color:var(--ink); }
+    @media (max-width:850px) {
+      .intro { grid-template-columns:1fr; gap:22px; padding:62px 0 40px; }
+      .intro-copy { margin:0; max-width:440px; }
+      .feature { grid-template-columns:1fr; }
+      .feature-left,.feature-right { padding:32px; }
+      .feature-right { border-left:0; border-top:1px solid var(--line); }
+      .feature .quote-source { padding-top:28px; }
+      .entry { grid-template-columns:110px minmax(0,1fr); gap:18px; }
+      .entry-outcome { grid-column:2; }
+    }
+    @media (max-width:600px) {
+      .shell { width:calc(100% - 36px); }
+      .topbar .shell { height:61px; }
+      .brand { font-size:19px; }
+      .brand-mark { width:18px; height:18px; font-size:12px; }
+      .top-right { gap:12px; font-size:10px; }
+      .edition { display:none; }
+      .intro { padding-top:50px; }
+      h1 { font-size:72px; }
+      .intro-copy { font-size:15px; }
+      .feature-left,.feature-right { padding:28px 24px; }
+      .feature h2 { font-size:43px; margin-top:21px; }
+      .feature-right p { font-size:24px; }
+      .archive-bar { margin-top:53px; display:block; }
+      .archive-bar h2 { font-size:42px; }
+      .search { margin-top:14px; width:100%; }
+      .entry { grid-template-columns:1fr; gap:13px; padding:30px 0; }
+      .entry-index span { display:inline; margin-right:10px; }
+      .entry blockquote { font-size:30px; }
+      .entry-outcome { grid-column:1; margin-top:6px; padding-left:16px; }
+      footer .shell { display:block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="shell">
+    <a class="brand" href="#top" aria-label="The Receipts, top of page"><span class="brand-mark">↗</span> The Receipts<span style="color:var(--red)">.</span></a>
+    <nav class="top-right" aria-label="Primary"><a href="#archive">The archive</a><span class="edition">Words meet consequences</span></nav>
+  </div></header>
+  <main class="shell" id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">An ongoing record of powerful people being wrong</p><h1 id="page-title">They said it.<br><em>Then this.</em></h1></div>
+      <p class="intro-copy"><strong>Billionaires have microphones.</strong> We keep the receipts. One old claim, one later reality, and the links to check both.</p>
+    </section>
+    <div class="content-head"><span class="section-label">The latest receipt</span><span class="count">01 / 04</span></div>
+    <article class="feature" aria-label="Featured receipt about Elon Musk's political spending">
+      <div class="feature-left">
+        <div class="story-meta"><span>Elon Musk</span><span class="dot"></span><span>Money & power</span></div>
+        <h2>“In terms of political spending, I’m going to do a lot less in the future. I think I’ve done enough.”</h2>
+        <div class="quote-source"><strong>May 2025</strong> · Qatar Economic Forum</div>
+      </div>
+      <div class="feature-right">
+        <div class="receipt-kicker">The receipt · October 2026</div>
+        <p>Last week’s campaign filings disclosed <strong>$158 million</strong> he gave to a Senate Republican super PAC in September. Reuters puts his spending this midterm cycle at roughly <strong>$366 million</strong>.</p>
+        <p class="sting">Apparently “enough” was the opening bid.</p>
+        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Campaign filings ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">Cycle total ↗</a></div>
+      </div>
+    </article>
+    <section id="archive" aria-labelledby="archive-title">
+      <div class="archive-bar"><div><h2 id="archive-title">The archive</h2><p>Short quotes. Long memories. Primary links where possible.</p></div><input class="search" id="search" type="search" placeholder="Search the archive ↗" aria-label="Search the archive"></div>
+      <div class="filters" role="group" aria-label="Filter receipts"><button class="filter active" data-filter="all" type="button" aria-pressed="true">All receipts</button><button class="filter" data-filter="money" type="button" aria-pressed="false">Money</button><button class="filter" data-filter="speech" type="button" aria-pressed="false">Free speech</button><button class="filter" data-filter="democracy" type="button" aria-pressed="false">Democracy</button></div>
+      <ol class="feed" id="feed">
+        <li class="entry" data-tags="speech" data-search="elon musk free speech private jet elonjet twitter"><div class="entry-index"><span>01 · Free speech</span> Elon Musk</div><div><blockquote>“My commitment to free speech extends even to not banning the account following my plane.”</blockquote><p class="attribution">November 2022 · Posted on Twitter</p></div><div class="entry-outcome"><small>One month later</small><p>Twitter suspended the account that tracked his plane.</p><p class="sting">The exception had a tail number.</p><div class="source-links"><a href="https://x.com/elonmusk/status/1589414958508691456" target="_blank" rel="noopener noreferrer">Original post ↗</a><a href="https://www.reuters.com/technology/twitter-suspends-bot-account-tracking-elon-musks-jet-2022-12-14/" target="_blank" rel="noopener noreferrer">What happened ↗</a></div></div></li>
+        <li class="entry" data-tags="democracy money" data-search="peter thiel politics donations republican vance democracy"><div class="entry-index"><span>02 · Democracy</span> Peter Thiel</div><div><blockquote>“The great task for libertarians is to find an escape from politics in all its forms.”</blockquote><p class="attribution">2009 · The Education of a Libertarian</p></div><div class="entry-outcome"><small>Then</small><p>He put more than $35 million into federal Republican candidates in the 2022 cycle.</p><p class="sting">He escaped politics by financing it.</p><div class="source-links"><a href="https://www.cato-unbound.org/2009/04/13/peter-thiel/education-libertarian" target="_blank" rel="noopener noreferrer">Original essay ↗</a><a href="https://www.reuters.com/world/us/peter-thiel-republican-megadonor-wont-fund-candidates-2024-sources-2023-04-26/" target="_blank" rel="noopener noreferrer">Donation record ↗</a></div></div></li>
+        <li class="entry" data-tags="democracy" data-search="donald trump electoral college disaster democracy genius 2016"><div class="entry-index"><span>03 · Democracy</span> Donald Trump</div><div><blockquote>“The electoral college is a disaster for a democracy.”</blockquote><p class="attribution">November 2012 · Posted on Twitter</p></div><div class="entry-outcome"><small>After his 2016 win</small><p>“The Electoral College is actually genius.”</p><p class="sting">The system improved when it worked for him.</p><div class="source-links"><a href="https://x.com/realDonaldTrump/status/266038556504494082" target="_blank" rel="noopener noreferrer">Original post ↗</a><a href="https://www.cbsnews.com/news/donald-trump-calls-electoral-college-a-disaster-during-2012-tweetstorm/" target="_blank" rel="noopener noreferrer">The reversal ↗</a></div></div></li>
+      </ol>
+      <p class="empty" id="empty" role="status">No receipts match that search. Try another name or topic.</p>
+    </section>
+  </main>
+  <footer><div class="shell"><span><strong>The Receipts.</strong> An editorial prototype. Quotes and outcomes are linked; commentary is ours.</span><span>Not every change of mind is a scandal. The point is to remember what was said.</span></div></footer>
+  <script>
+    const search = document.querySelector('#search');
+    const entries = [...document.querySelectorAll('.entry')];
+    const filters = [...document.querySelectorAll('.filter')];
+    let active = 'all';
+    function updateFeed() {
+      const term = search.value.trim().toLocaleLowerCase();
+      let shown = 0;
+      for (const entry of entries) {
+        const tags = entry.dataset.tags.split(' ');
+        const text = `${entry.dataset.search} ${entry.textContent}`.toLocaleLowerCase();
+        const visible = (active === 'all' || tags.includes(active)) && (!term || text.includes(term));
+        entry.hidden = !visible;
+        if (visible) shown++;
+      }
+      document.querySelector('#empty').style.display = shown ? 'none' : 'block';
+    }
+    filters.forEach(button => button.addEventListener('click', () => {
+      active = button.dataset.filter;
+      filters.forEach(item => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+      updateFeed();
+    }));
+    search.addEventListener('input', updateFeed);
+  </script>
+</body>
+</html>
