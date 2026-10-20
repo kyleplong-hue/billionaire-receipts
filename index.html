@@ -16,20 +16,20 @@
     a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
     .shell { width:min(1120px,calc(100% - 56px)); margin:auto; }
     .topbar { border-bottom:1px solid var(--line); background:rgba(250,250,248,.96); }
-    .topbar .shell { height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .topbar .shell { height:66px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
     .brand { display:flex; gap:12px; align-items:center; text-decoration:none; font-weight:700; letter-spacing:-.045em; font-size:22px; white-space:nowrap; }
     .brand-mark { width:21px; height:21px; display:inline-grid; place-items:center; border:2px solid var(--red); color:var(--red); border-radius:50%; font-size:15px; font-weight:700; transform:rotate(-14deg); line-height:1; }
     .top-right { display:flex; align-items:center; gap:26px; color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .top-right a { text-decoration:none; }
     .top-right a:hover { color:var(--red); }
     .edition { border-left:1px solid var(--line); padding-left:24px; }
-    .intro { display:grid; grid-template-columns:1.35fr .65fr; gap:40px; padding:79px 0 60px; border-bottom:1px solid var(--ink); align-items:end; }
+    .intro { display:grid; grid-template-columns:1.35fr .65fr; gap:40px; padding:47px 0 35px; border-bottom:1px solid var(--ink); align-items:end; }
     .eyebrow { margin:0 0 15px; color:var(--red); font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
-    h1 { margin:0; font:normal clamp(64px,9vw,122px)/.89 var(--serif); letter-spacing:-.065em; }
+    h1 { margin:0; font:normal clamp(58px,7vw,90px)/.9 var(--serif); letter-spacing:-.065em; }
     h1 em { color:var(--red); font-weight:400; }
-    .intro-copy { margin:0 0 4px auto; max-width:292px; color:#464641; font-size:17px; line-height:1.55; }
+    .intro-copy { margin:0 0 4px auto; max-width:292px; color:#464641; font-size:15px; line-height:1.55; }
     .intro-copy strong { color:var(--ink); font-weight:600; }
-    .content-head { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:31px 0 18px; }
+    .content-head { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:22px 0 13px; }
     .section-label { font-size:11px; text-transform:uppercase; letter-spacing:.16em; font-weight:700; }
     .count { color:var(--muted); font-size:12px; }
     .feature { background:var(--white); border:1px solid var(--line); display:grid; grid-template-columns:1.12fr .88fr; min-height:365px; }
@@ -37,6 +37,10 @@
     .story-meta { display:flex; align-items:center; gap:13px; color:var(--muted); text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:.15em; }
     .story-meta .dot { width:4px; height:4px; background:#aaa; border-radius:50%; }
     .feature h2 { margin:26px 0 0; max-width:660px; font:normal clamp(38px,4.1vw,57px)/1.02 var(--serif); letter-spacing:-.025em; }
+    .source-image { margin:29px 0 0; }
+    .source-image img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); }
+    .source-image figcaption { margin-top:7px; color:var(--muted); font-size:10px; line-height:1.4; }
+    .source-image a { display:block; }
     .feature .quote-source { margin-top:auto; padding-top:26px; color:var(--muted); font-size:12px; }
     .feature .quote-source strong { color:var(--ink); }
     .feature-right { padding:46px 48px; background:var(--soft); border-left:1px solid var(--line); display:flex; flex-direction:column; }
@@ -118,13 +122,15 @@
       <div class="feature-left">
         <div class="story-meta"><span>Elon Musk</span><span class="dot"></span><span>Money & power</span></div>
         <h2>“In terms of political spending, I’m going to do a lot less in the future. I think I’ve done enough.”</h2>
+        <figure class="source-image"><a href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer" aria-label="Watch the original Bloomberg interview on YouTube"><img src="./assets/musk-bloomberg-video.jpg" alt="Elon Musk speaking by video at the Qatar Economic Forum, with Bloomberg event branding beside him"></a><figcaption>Still from Bloomberg’s Qatar Economic Forum interview · <a style="display:inline" href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer">Watch the source ↗</a></figcaption></figure>
         <div class="quote-source"><strong>May 2025</strong> · Qatar Economic Forum</div>
       </div>
       <div class="feature-right">
         <div class="receipt-kicker">The receipt · October 2026</div>
         <p>Last week’s campaign filings disclosed <strong>$158 million</strong> he gave to a Senate Republican super PAC in September. Reuters puts his spending this midterm cycle at roughly <strong>$366 million</strong>.</p>
-        <p class="sting">Apparently “enough” was the opening bid.</p>
-        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Campaign filings ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">Cycle total ↗</a></div>
+        <p class="sting">We all think he’s done quite enough. Apparently, he couldn’t help himself.</p>
+        <p style="font:13px/1.5 var(--sans); color:#55554f; margin-top:22px">SpaceX’s IPO made him the world’s first trillionaire in June. The money is enormous to everyone else. The power looks harder to give up.</p>
+        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Campaign filings ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">Cycle total ↗</a><a href="https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/" target="_blank" rel="noopener noreferrer">Trillionaire context ↗</a></div>
       </div>
     </article>
     <section id="archive" aria-labelledby="archive-title">
