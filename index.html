@@ -34,6 +34,12 @@
     .source-image img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); }
     .source-image figcaption { margin-top:7px; color:var(--muted); font-size:10px; line-height:1.4; }
     .source-image a { display:block; }
+    .old-reports { margin-top:31px; display:flex; flex-direction:column; gap:20px; }
+    .old-reports figure { margin:0; }
+    .old-reports figure > a { display:block; border:1px solid var(--line); }
+    .old-reports img { display:block; width:100%; height:auto; }
+    .old-reports figcaption { margin-top:7px; color:var(--muted); font-size:11px; }
+    .old-reports figcaption a { color:var(--ink); font-weight:700; text-underline-offset:3px; }
     .claim-kicker { margin-top:26px; color:var(--red); font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
     .feature-right { padding:37px 40px; border-left:1px solid var(--line); display:flex; flex-direction:column; }
     .receipt-kicker { color:var(--red); font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
@@ -47,7 +53,7 @@
     .source-links { margin-top:auto; padding-top:23px; display:flex; flex-wrap:wrap; gap:8px 17px; }
     .source-links a { color:#50504b; font-size:11px; font-weight:700; text-underline-offset:3px; }
     .source-links a:hover { color:var(--red); }
-    .feature-reel { width:min(100%,344px); margin:27px 0 0 auto; }
+    .feature-reel { width:min(100%,344px); margin:27px auto 0; }
     .feature-reel h3 { margin:0 0 13px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
     .feature-reel iframe { display:block; width:100%; height:600px; border:1px solid var(--line); background:#f3f3f1; }
     .feature-reel a { display:inline-block; margin-top:10px; font-size:11px; color:var(--muted); text-underline-offset:3px; }
@@ -78,7 +84,6 @@
       .feature { grid-template-columns:1fr; }
       .feature-left,.feature-right { padding:32px; }
       .feature-right { border-left:0; border-top:1px solid var(--line); }
-      .feature-reel { margin-left:0; }
       .entry { grid-template-columns:110px minmax(0,1fr); gap:18px; }
       .entry-outcome { grid-column:2; }
     }
@@ -114,14 +119,18 @@
         <div class="claim-kicker">May 2025 · Qatar Economic Forum</div>
         <h2>“In terms of political spending, I’m going to do a lot less in the future. I think I’ve done enough.”</h2>
         <figure class="source-image"><a href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer" aria-label="Watch the original Bloomberg interview on YouTube"><img src="./assets/musk-bloomberg-video.jpg" alt="Elon Musk speaking by video at the Qatar Economic Forum, with Bloomberg event branding beside him"></a><figcaption>Still from Bloomberg’s Qatar Economic Forum interview · <a style="display:inline" href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer">Watch the source ↗</a></figcaption></figure>
+        <div class="old-reports" aria-label="May 2025 reporting on Musk's statement">
+          <figure><a href="https://www.cbsnews.com/news/elon-musk-political-spending/" target="_blank" rel="noopener noreferrer" aria-label="Read the May 2025 CBS News report"><img src="./assets/cbs-may2025-quote.webp" alt="CBS News, May 20, 2025: Elon Musk says he'll scale back political spending: I think I've done enough"></a><figcaption>CBS News · May 20, 2025 — <a href="https://www.cbsnews.com/news/elon-musk-political-spending/" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
+          <figure><a href="https://www.npr.org/2025/05/20/nx-s1-5405039/musk-political-spending" target="_blank" rel="noopener noreferrer" aria-label="Read the May 2025 NPR report"><img src="./assets/npr-may2025-quote.webp" alt="NPR, May 20, 2025: Musk to slow down political spending: I think I've done enough"></a><figcaption>NPR · May 20, 2025 — <a href="https://www.npr.org/2025/05/20/nx-s1-5405039/musk-political-spending" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
+        </div>
       </div>
       <div class="feature-right">
         <div class="receipt-kicker">What happened · October 2026</div>
         <p>New filings show he gave <strong>$158 million</strong> in September to a Senate Republican super PAC. He has spent roughly <strong>$366 million</strong> this midterm cycle.</p>
         <figure class="headline-shot"><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer" aria-label="Read the CBS News report about Musk's Senate donations"><img src="./assets/cbs-oct16-headline.webp" alt="CBS News headline, October 16, 2026: Elon Musk donates over $150 million to Senate GOP group, assisting Ken Paxton"></a><figcaption>CBS News · Oct 16, 2026 — <a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
-        <p class="sting">We all think he’s done quite enough. Apparently, he couldn’t help himself.</p>
+        <p class="sting">We all think he's done quite enough, but apparently Musk just couldn't help himself - and why would he keep his word? Since his last round of funding his president, he became the world's first trillionaire - the money is inconsequential, the power is addictive.</p>
         <aside class="feature-reel" aria-label="CNN Instagram reel about Elon Musk"><h3>Video · CNN</h3><iframe src="https://www.instagram.com/p/DeswfSllOMS/embed/" title="CNN Instagram reel about Elon Musk" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.instagram.com/reels/DeswfSllOMS/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></aside>
-        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">$366m total ↗</a></div>
+        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">$366m total ↗</a><a href="https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/" target="_blank" rel="noopener noreferrer">Trillionaire report ↗</a></div>
       </div>
     </article>
     <section id="archive" aria-labelledby="archive-title">
@@ -133,7 +142,6 @@
         <li class="entry" data-tags="democracy" data-search="donald trump electoral college disaster democracy genius 2016"><div class="entry-index"><span>03 · Democracy</span> Donald Trump</div><div><blockquote>“The electoral college is a disaster for a democracy.”</blockquote><p class="attribution">November 2012 · Posted on Twitter</p></div><div class="entry-outcome"><small>After his 2016 win</small><p>“The Electoral College is actually genius.”</p><p class="sting">The system improved when it worked for him.</p><div class="source-links"><a href="https://x.com/realDonaldTrump/status/266038556504494082" target="_blank" rel="noopener noreferrer">Original post ↗</a><a href="https://www.cbsnews.com/news/donald-trump-calls-electoral-college-a-disaster-during-2012-tweetstorm/" target="_blank" rel="noopener noreferrer">The reversal ↗</a></div></div></li>
       </ol>
       <p class="empty" id="empty" role="status">No receipts match that search. Try another name or topic.</p>
-
     </section>
   </main>
   <footer><div class="shell"><span><strong>Bullshit by Billionaires.</strong> Quotes and outcomes are sourced; commentary is ours.</span></div></footer>
