@@ -8,12 +8,12 @@
   <title>Bullshit by Billionaires — what they said, what happened</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
-    :root { --paper:#fbfbfa; --white:#fff; --ink:#171717; --muted:#686864; --line:#dededb; --red:#b84231; --sans:'DM Sans',Arial,sans-serif; }
+    :root { --paper:#fbfbfa; --white:#fff; --ink:#171717; --muted:#686864; --line:#dededb; --line-soft:#ecebe8; --red:#b84231; --sans:'DM Sans',Arial,sans-serif; --measure:680px; }
     * { box-sizing:border-box; }
     html { scroll-behavior:auto; }
     body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
     a { color:inherit; }
-    a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
+    a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
     .shell { width:min(1120px,calc(100% - 56px)); margin:auto; }
     .topbar { border-bottom:1px solid var(--line); background:rgba(250,250,248,.96); }
     .topbar .shell { height:66px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
@@ -25,40 +25,46 @@
     .content-head { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:32px 0 13px; }
     .section-label { font-size:11px; text-transform:uppercase; letter-spacing:.16em; font-weight:700; }
     .count { color:var(--muted); font-size:12px; }
-    .feature { background:var(--white); border:1px solid var(--line); display:grid; grid-template-columns:1.05fr .95fr; }
-    .feature-left { padding:37px 40px; display:flex; flex-direction:column; }
-    .story-meta { display:flex; align-items:center; gap:13px; color:var(--muted); text-transform:uppercase; font-size:10px; font-weight:700; letter-spacing:.15em; }
-    .story-meta .dot { width:4px; height:4px; background:#aaa; border-radius:50%; }
-    .feature h2 { margin:23px 0 0; max-width:660px; font-size:clamp(29px,3.1vw,40px); line-height:1.16; font-weight:500; letter-spacing:-.047em; }
-    .source-image { margin:28px 0 0; }
-    .source-image img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border:1px solid var(--line); }
-    .source-image figcaption { margin-top:7px; color:var(--muted); font-size:10px; line-height:1.4; }
-    .source-image a { display:block; }
-    .old-reports { margin-top:40px; display:flex; flex-direction:column; gap:34px; }
-    .old-reports figure { margin:0; }
-    .old-reports figure > a { display:block; border:1px solid var(--line); }
-    .old-reports img { display:block; width:100%; height:auto; }
-    .old-reports figcaption { margin-top:7px; color:var(--muted); font-size:11px; }
-    .old-reports figcaption a { color:var(--ink); font-weight:700; text-underline-offset:3px; }
-    .claim-kicker { margin-top:26px; color:var(--red); font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
-    .feature-right { padding:37px 40px; border-left:1px solid var(--line); display:flex; flex-direction:column; }
-    .receipt-kicker { color:var(--red); font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; }
-    .feature-right p { margin:17px 0 0; font-size:20px; line-height:1.4; letter-spacing:-.025em; }
-    .feature-right .sting { margin-top:17px; font-size:15px; line-height:1.48; font-weight:600; color:var(--ink); letter-spacing:0; }
-    .headline-shot { margin:32px 0 0; }
-    .headline-shot a { display:block; border:1px solid var(--line); background:#fff; }
-    .headline-shot img { display:block; width:100%; height:auto; }
-    .headline-shot figcaption { margin-top:8px; color:var(--muted); font-size:11px; }
-    .headline-shot figcaption a { display:inline; border:0; font-weight:700; color:var(--ink); text-underline-offset:3px; }
+
+    /* ---------- Latest: one-column receipt ---------- */
+    .receipt { max-width:var(--measure); margin:0 auto; padding:64px 0 72px; border-bottom:1px solid var(--line); }
+    .receipt:first-of-type { padding-top:40px; }
+    .receipt-who { display:flex; align-items:baseline; gap:12px; margin:0; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); }
+    .receipt-who .topic { font-weight:500; letter-spacing:0; text-transform:none; color:var(--muted); font-size:13px; }
+    .receipt-label { margin-top:36px; font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); }
+    .receipt-label.then { display:flex; align-items:center; gap:16px; margin-top:52px; color:var(--red); }
+    .receipt-label.then::after { content:""; flex:1; height:1px; background:var(--line); }
+    .receipt h2 { margin:14px 0 0; font-size:clamp(31px,4vw,46px); line-height:1.12; font-weight:500; letter-spacing:-.042em; }
+    .receipt-attrib { margin:14px 0 0; font-size:14px; color:var(--muted); }
+    .receipt-evidence { margin:32px 0 0; }
+    .receipt-evidence > a { display:block; border:1px solid var(--line); background:var(--white); }
+    .receipt-evidence img { display:block; width:100%; height:auto; }
+    .receipt-evidence figcaption { margin-top:10px; font-size:13px; line-height:1.5; color:var(--muted); }
+    .receipt-outcome { margin:16px 0 0; font-size:clamp(20px,2.2vw,25px); line-height:1.4; letter-spacing:-.02em; }
+    .receipt-outcome strong { font-weight:600; }
+    .receipt-sting { margin:36px 0 0; font-size:clamp(24px,3vw,33px); line-height:1.2; font-weight:600; letter-spacing:-.035em; color:var(--red); }
+    .receipt-context { margin:16px 0 0; font-size:15px; line-height:1.6; color:var(--muted); }
+    .receipt-actions { margin-top:36px; padding-top:20px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px 12px; }
+    .watch { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:0 18px 0 14px; border:1px solid #d6d5d0; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; background:var(--white); }
+    .watch:hover { border-color:var(--ink); }
+    .watch svg { flex-shrink:0; }
+    .sources { flex:1 1 100%; }
+    .sources summary { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 4px; font-size:14px; font-weight:600; color:var(--muted); cursor:pointer; list-style:none; }
+    .sources summary::-webkit-details-marker { display:none; }
+    .sources summary::after { content:""; width:7px; height:7px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:translateY(-2px) rotate(45deg); transition:transform .15s; }
+    .sources[open] summary::after { transform:translateY(2px) rotate(-135deg); }
+    .sources summary:hover { color:var(--ink); }
+    .sources ol { margin:4px 0 0; padding:0; list-style:none; font-size:14px; line-height:1.5; }
+    .sources li { display:grid; grid-template-columns:120px minmax(0,1fr); gap:16px; padding:10px 0; border-bottom:1px solid var(--line-soft); }
+    .sources li:last-child { border-bottom:0; }
+    .sources time, .sources .date { color:var(--muted); }
+    .sources a { text-underline-offset:3px; }
+    .sources a:hover { color:var(--red); }
+
+    /* ---------- Archive (unchanged) ---------- */
     .source-links { margin-top:auto; padding-top:23px; display:flex; flex-wrap:wrap; gap:8px 17px; }
     .source-links a { color:#50504b; font-size:11px; font-weight:700; text-underline-offset:3px; }
     .source-links a:hover { color:var(--red); }
-    .feature-reel { width:min(100%,344px); margin:27px auto 0; }
-    .feature-reel h3 { margin:0 0 13px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
-    .feature-reel iframe { display:block; width:100%; height:600px; border:1px solid var(--line); background:#f3f3f1; }
-    .feature-reel a { display:inline-block; margin-top:10px; font-size:11px; color:var(--muted); text-underline-offset:3px; }
-    .secondary-feature { margin-top:16px; }
-    .secondary-feature .source-image img { aspect-ratio:auto; object-fit:contain; }
     .archive-bar { margin-top:52px; padding-bottom:17px; display:flex; align-items:end; justify-content:space-between; gap:25px; border-bottom:1px solid var(--ink); }
     .archive-bar h2 { margin:0; font-size:24px; line-height:1; font-weight:700; letter-spacing:-.05em; }
     .search { width:230px; height:40px; border:0; border-bottom:1px solid #a5a59d; background:transparent; border-radius:0; color:var(--ink); font:13px var(--sans); outline:none; }
@@ -83,9 +89,6 @@
     footer .shell { display:flex; justify-content:space-between; gap:24px; }
     footer strong { color:var(--ink); }
     @media (max-width:850px) {
-      .feature { grid-template-columns:1fr; }
-      .feature-left,.feature-right { padding:32px; }
-      .feature-right { border-left:0; border-top:1px solid var(--line); }
       .entry { grid-template-columns:110px minmax(0,1fr); gap:18px; }
       .entry-outcome { grid-column:2; }
     }
@@ -94,9 +97,13 @@
       .topbar .shell { height:61px; }
       .brand { font-size:17px; }
       .top-right { gap:12px; font-size:10px; }
-      .feature-left,.feature-right { padding:28px 24px; }
-      .feature h2 { font-size:31px; margin-top:21px; }
-      .feature-right p { font-size:19px; }
+      .receipt { padding:44px 0 52px; }
+      .receipt-label { margin-top:28px; }
+      .receipt-label.then { margin-top:40px; }
+      .receipt-sting { margin-top:28px; }
+      .watch { width:100%; justify-content:center; min-height:48px; }
+      .sources li { grid-template-columns:1fr; gap:2px; }
+      .sources .date { font-size:12px; }
       .archive-bar { margin-top:44px; display:block; }
       .archive-bar h2 { font-size:24px; }
       .search { margin-top:14px; width:100%; }
@@ -115,65 +122,79 @@
   </div></header>
   <main class="shell" id="top">
     <div class="content-head"><span class="section-label">Latest</span><span class="count">October 2026</span></div>
-    <article class="feature" aria-label="Featured receipt about Elon Musk's political spending">
-      <div class="feature-left">
-        <div class="story-meta"><span>Elon Musk</span><span class="dot"></span><span>Money & power</span></div>
-        <div class="claim-kicker">May 2025 · Qatar Economic Forum</div>
-        <h2>“In terms of political spending, I’m going to do a lot less in the future. I think I’ve done enough.”</h2>
-        <figure class="source-image"><a href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer" aria-label="Watch the original Bloomberg interview on YouTube"><img src="./assets/musk-bloomberg-video.jpg" alt="Elon Musk speaking by video at the Qatar Economic Forum, with Bloomberg event branding beside him"></a><figcaption>Still from Bloomberg’s Qatar Economic Forum interview · <a style="display:inline" href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer">Watch the source ↗</a></figcaption></figure>
-        <div class="old-reports" aria-label="May 2025 reporting on Musk's statement">
-          <figure><a href="https://www.cbsnews.com/news/elon-musk-political-spending/" target="_blank" rel="noopener noreferrer" aria-label="Read the May 2025 CBS News report"><img src="./assets/cbs-may2025-quote.webp" alt="CBS News, May 20, 2025: Elon Musk says he'll scale back political spending: I think I've done enough"></a><figcaption>CBS News · May 20, 2025 — <a href="https://www.cbsnews.com/news/elon-musk-political-spending/" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-          <figure><a href="https://www.npr.org/2025/05/20/nx-s1-5405039/musk-political-spending" target="_blank" rel="noopener noreferrer" aria-label="Read the May 2025 NPR report"><img src="./assets/npr-may2025-quote.webp" alt="NPR, May 20, 2025: Musk to slow down political spending: I think I've done enough"></a><figcaption>NPR · May 20, 2025 — <a href="https://www.npr.org/2025/05/20/nx-s1-5405039/musk-political-spending" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-        </div>
-      </div>
-      <div class="feature-right">
-        <div class="receipt-kicker">What happened · October 2026</div>
-        <p>New filings show he gave <strong>$158 million</strong> in September to a Senate Republican super PAC. He has spent roughly <strong>$366 million</strong> this midterm cycle.</p>
-        <figure class="headline-shot"><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer" aria-label="Read the CBS News report about Musk's Senate donations"><img src="./assets/cbs-oct16-headline.webp" alt="CBS News headline, October 16, 2026: Elon Musk donates over $150 million to Senate GOP group, assisting Ken Paxton"></a><figcaption>CBS News · Oct 16, 2026 — <a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
-        <p class="sting">We all think he's done quite enough, but apparently Musk just couldn't help himself - and why would he keep his word? Since his last round of funding his president, he became the world's first trillionaire - the money is inconsequential, the power is addictive.</p>
-        <aside class="feature-reel" aria-label="CNN Instagram reel about Elon Musk"><h3>Video · CNN</h3><iframe src="https://www.instagram.com/p/DeswfSllOMS/embed/" title="CNN Instagram reel about Elon Musk" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.instagram.com/reels/DeswfSllOMS/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></aside>
-        <div class="source-links"><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">$366m total ↗</a><a href="https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/" target="_blank" rel="noopener noreferrer">Trillionaire report ↗</a></div>
-      </div>
-    </article>
-    <article class="feature secondary-feature" id="zuckerberg-privacy" aria-label="Mark Zuckerberg on Facebook users' data control">
-      <div class="feature-left">
-        <div class="story-meta"><span>Mark Zuckerberg</span><span class="dot"></span><span>Privacy</span></div>
-        <div class="claim-kicker">May 24, 2010 · Washington Post</div>
-        <h2>“You have control over how your information is shared.”</h2>
-        <figure class="source-image"><a href="https://nmcourts.gov/wp-content/uploads/2026/09/Jury-Verdict-and-final-jury-instructions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the New Mexico verdict form quoting Zuckerberg's 2010 statement"><img src="./assets/meta-2010-quote-verdict.webp" loading="lazy" alt="New Mexico jury verdict form reproducing Zuckerberg's May 24, 2010 Washington Post statement and marking it deceptive"></a><figcaption>New Mexico verdict form reproducing the 2010 quote · <a style="display:inline" href="https://nmcourts.gov/wp-content/uploads/2026/09/Jury-Verdict-and-final-jury-instructions.pdf" target="_blank" rel="noopener noreferrer">Read the court record ↗</a></figcaption></figure>
-        <div class="old-reports" aria-label="Reporting from May 2010 on Facebook's privacy claims">
-          <figure><a href="https://www.theguardian.com/technology/2010/may/24/facebook-revise-privacy-zuckerberg" target="_blank" rel="noopener noreferrer" aria-label="Read the May 2010 Guardian report"><img src="./assets/guardian-2010-meta-privacy.webp" loading="lazy" alt="The Guardian, May 24, 2010: Facebook to tweak privacy settings, says Zuckerberg"></a><figcaption>The Guardian · May 24, 2010 — <a href="https://www.theguardian.com/technology/2010/may/24/facebook-revise-privacy-zuckerberg" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-        </div>
-      </div>
-      <div class="feature-right">
-        <div class="receipt-kicker">What happened · October 21, 2026</div>
-        <p>A New Mexico judge ordered <strong>Meta to pay $25 billion</strong> after a jury found the company misled users about their data. The jury specifically found the 2010 user-control statement deceptive.</p>
-        <figure class="headline-shot"><a href="https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html" target="_blank" rel="noopener noreferrer" aria-label="Read CNBC's report on the New Mexico privacy judgment"><img src="./assets/cnbc-2026-meta-penalty.webp" loading="lazy" alt="CNBC, October 21, 2026: Meta ordered to pay $25 billion penalty in New Mexico Cambridge Analytica case"></a><figcaption>CNBC · Oct 21, 2026 — <a href="https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
-        <p class="sting">The control was in the promise. The jury found it wasn't in users' hands.</p>
-        <p>This is a judgment about years of earlier conduct, not a new data breach. Meta disputes the ruling and says it will appeal.</p>
-        <aside class="feature-reel" aria-label="ABC News Instagram reel about Meta's New Mexico judgment"><h3>Video · ABC News</h3><iframe src="https://www.instagram.com/p/DexKtVqC0Zz/embed/" title="ABC News report on Meta's $25 billion New Mexico privacy judgment" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.instagram.com/reel/DexKtVqC0Zz/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></aside>
-        <div class="source-links"><a href="https://www.washingtonpost.com/archive/opinions/2010/05/24/a-new-page-in-facebook-privacy/c921256b-53ee-4706-989d-790c0b21be20/" target="_blank" rel="noopener noreferrer">Original essay ↗</a><a href="https://nmcourts.gov/wp-content/uploads/2026/09/Jury-Verdict-and-final-jury-instructions.pdf" target="_blank" rel="noopener noreferrer">Jury verdict ↗</a><a href="https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html" target="_blank" rel="noopener noreferrer">Penalty &amp; appeal ↗</a></div>
+
+    <article class="receipt" id="musk-political-spending" aria-label="Elon Musk on political spending">
+      <p class="receipt-who">Elon Musk <span class="topic">on money &amp; power</span></p>
+      <div class="receipt-label">Said · May 2025</div>
+      <h2>“In terms of political spending, I’m going to do a lot less in the future. I think I’ve done enough.”</h2>
+      <p class="receipt-attrib">Qatar Economic Forum · Bloomberg interview</p>
+      <figure class="receipt-evidence"><a href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer" aria-label="Watch the original Bloomberg interview on YouTube"><img src="./assets/musk-bloomberg-video.jpg" width="1280" height="720" alt="Elon Musk speaking by video at the Qatar Economic Forum, with Bloomberg event branding beside him"></a><figcaption>Still from Bloomberg’s Qatar Economic Forum interview.</figcaption></figure>
+      <div class="receipt-label then">Then · October 2026</div>
+      <p class="receipt-outcome">New filings show he gave <strong>$158 million</strong> in September to a Senate Republican super PAC. He has spent roughly <strong>$366 million</strong> this midterm cycle.</p>
+      <p class="receipt-sting">We all think he’s done quite enough — but apparently Musk just couldn’t help himself.</p>
+      <p class="receipt-context">And why would he keep his word? Since his last round of funding his president, he became the world’s first trillionaire. The money is inconsequential; the power is addictive.</p>
+      <div class="receipt-actions">
+        <a class="watch" href="https://www.instagram.com/reels/DeswfSllOMS/" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></svg>Watch · CNN clip</a>
+        <details class="sources">
+          <summary>Sources (7)</summary>
+          <ol>
+            <li><span class="date">May 2025</span><a href="https://www.youtube.com/watch?v=0yzXOd8Cs0U" target="_blank" rel="noopener noreferrer">Bloomberg — Qatar Economic Forum interview (video)</a></li>
+            <li><span class="date">May 20, 2025</span><a href="https://www.reuters.com/business/autos-transportation/elon-musk-says-he-is-still-committed-being-tesla-ceo-5-years-time-2025-05-20/" target="_blank" rel="noopener noreferrer">Reuters — the original quote</a></li>
+            <li><span class="date">May 20, 2025</span><a href="https://www.cbsnews.com/news/elon-musk-political-spending/" target="_blank" rel="noopener noreferrer">CBS News — Musk says he’ll scale back political spending</a></li>
+            <li><span class="date">May 20, 2025</span><a href="https://www.npr.org/2025/05/20/nx-s1-5405039/musk-political-spending" target="_blank" rel="noopener noreferrer">NPR — Musk to slow down political spending</a></li>
+            <li><span class="date">Jun 11, 2026</span><a href="https://www.reuters.com/business/media-telecom/spacex-ipo-makes-elon-musk-worlds-first-trillionaire-2026-06-11/" target="_blank" rel="noopener noreferrer">Reuters — SpaceX IPO makes Musk the first trillionaire</a></li>
+            <li><span class="date">Oct 12, 2026</span><a href="https://www.reuters.com/business/media-telecom/musk-has-spent-366-million-help-republicans-retain-control-congress-2026-10-12/" target="_blank" rel="noopener noreferrer">Reuters — $366 million this cycle</a></li>
+            <li><span class="date">Oct 16, 2026</span><a href="https://www.cbsnews.com/news/elon-musk-midterm-donations-texas-ken-paxton/" target="_blank" rel="noopener noreferrer">CBS News — $150M+ to Senate GOP group</a></li>
+          </ol>
+        </details>
       </div>
     </article>
-    <article class="feature secondary-feature" id="trump-mail-voting" aria-label="Donald Trump on mail-in voting">
-      <div class="feature-left">
-        <div class="story-meta"><span>Donald Trump</span><span class="dot"></span><span>Democracy</span></div>
-        <div class="claim-kicker">April 7, 2020 · Mail voting</div>
-        <h2>“There's a lot of dishonesty going along with mail-in voting.”</h2>
-        <figure class="source-image"><a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer" aria-label="Read NBC News's report containing Trump's April 7 quote"><img src="./assets/nbc-2020-trump-quote.webp" loading="lazy" alt="NBC News article body, April 10, 2020, showing Trump's April 7 quotation about dishonesty in mail-in voting"></a><figcaption>Screenshot of NBC News reporting the April 7 statement · <a style="display:inline" href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer">Read the source ↗</a></figcaption></figure>
-        <div class="old-reports" aria-label="Earlier reporting on Trump's position on mail-in voting">
-          <figure><a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer" aria-label="Read the April 2020 NBC News report"><img src="./assets/nbc-2020-trump-mail-voting.webp" loading="lazy" alt="NBC News headline: Trump pushes false claims about mail-in vote fraud. Here are the facts."></a><figcaption>NBC News · Apr 10, 2020 — <a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-          <figure><a href="https://www.cbsnews.com/news/trump-ban-mail-in-voting-before-2026-midterm-elections/" target="_blank" rel="noopener noreferrer" aria-label="Read the August 2025 CBS News report"><img src="./assets/cbs-2025-trump-mail-voting.webp" loading="lazy" alt="CBS News, August 2025: Trump vows to try banning mail-in voting before 2026 midterm elections"></a><figcaption>CBS News · Aug 19, 2025 — <a href="https://www.cbsnews.com/news/trump-ban-mail-in-voting-before-2026-midterm-elections/" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-        </div>
+
+    <article class="receipt" id="zuckerberg-privacy" aria-label="Mark Zuckerberg on Facebook users' data control">
+      <p class="receipt-who">Mark Zuckerberg <span class="topic">on privacy</span></p>
+      <div class="receipt-label">Said · May 24, 2010</div>
+      <h2>“You have control over how your information is shared.”</h2>
+      <p class="receipt-attrib">Washington Post op-ed</p>
+      <figure class="receipt-evidence"><a href="https://nmcourts.gov/wp-content/uploads/2026/09/Jury-Verdict-and-final-jury-instructions.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read the New Mexico verdict form quoting Zuckerberg's 2010 statement"><img src="./assets/meta-2010-quote-verdict.webp" width="920" height="480" loading="lazy" alt="New Mexico jury verdict form reproducing Zuckerberg's May 24, 2010 Washington Post statement and marking it deceptive"></a><figcaption>The same sentence, sixteen years later — on the New Mexico jury’s verdict form.</figcaption></figure>
+      <div class="receipt-label then">Then · October 21, 2026</div>
+      <p class="receipt-outcome">A New Mexico judge ordered <strong>Meta to pay $25 billion</strong> after a jury found the company misled users about their data. The jury specifically found the 2010 user-control statement deceptive.</p>
+      <p class="receipt-sting">The control was in the promise. The jury found it wasn’t in users’ hands.</p>
+      <p class="receipt-context">This is a judgment about years of earlier conduct, not a new data breach. Meta disputes the ruling and says it will appeal.</p>
+      <div class="receipt-actions">
+        <a class="watch" href="https://www.instagram.com/reel/DexKtVqC0Zz/" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></svg>Watch · ABC News clip</a>
+        <details class="sources">
+          <summary>Sources (4)</summary>
+          <ol>
+            <li><span class="date">May 24, 2010</span><a href="https://www.washingtonpost.com/archive/opinions/2010/05/24/a-new-page-in-facebook-privacy/c921256b-53ee-4706-989d-790c0b21be20/" target="_blank" rel="noopener noreferrer">Washington Post — Zuckerberg’s original op-ed</a></li>
+            <li><span class="date">May 24, 2010</span><a href="https://www.theguardian.com/technology/2010/may/24/facebook-revise-privacy-zuckerberg" target="_blank" rel="noopener noreferrer">The Guardian — Facebook to tweak privacy settings</a></li>
+            <li><span class="date">2026</span><a href="https://nmcourts.gov/wp-content/uploads/2026/09/Jury-Verdict-and-final-jury-instructions.pdf" target="_blank" rel="noopener noreferrer">New Mexico Courts — jury verdict (PDF)</a></li>
+            <li><span class="date">Oct 21, 2026</span><a href="https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html" target="_blank" rel="noopener noreferrer">CNBC — $25 billion penalty and appeal</a></li>
+          </ol>
+        </details>
       </div>
-      <div class="feature-right">
-        <div class="receipt-kicker">What happened · October 2026</div>
-        <p>“Vote early, vote by mail or vote in-person on Election Day, November 3rd.”</p>
-        <figure class="headline-shot"><a href="https://caplinnews.fiu.edu/trump-republicans-mail-in-voting-early-voting-midterms-supreme-court-paul-mitchell/" target="_blank" rel="noopener noreferrer" aria-label="Read Caplin News's report on Trump's mail-voting advice"><img src="./assets/caplin-2026-trump-mail-voting.webp" loading="lazy" alt="Caplin News headline, October 7, 2026: Despite past criticism, Trump encourages Republicans to vote by mail in midterms"></a><figcaption>Caplin News · Oct 7, 2026 — <a href="https://caplinnews.fiu.edu/trump-republicans-mail-in-voting-early-voting-midterms-supreme-court-paul-mitchell/" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
-        <p class="sting">The mail is suspect—unless the ballot has an R on it.</p>
-        <p>He hasn't withdrawn his fraud claims. He's now telling supporters to use the same voting method he spent years attacking.</p>
-        <aside class="feature-reel" aria-label="CBS News Instagram reel about Trump's mail-in voting advice"><h3>Video · CBS News</h3><iframe src="https://www.instagram.com/p/DeIFwsBv0Vq/embed/" title="CBS News video of Trump discussing mail-in voting in October 2026" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.instagram.com/reel/DeIFwsBv0Vq/" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></aside>
-        <div class="source-links"><a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="https://www.reuters.com/world/us/trump-urges-supporters-vote-by-mail-despite-fraud-claims-2026-10-06/" target="_blank" rel="noopener noreferrer">Later statement · Reuters ↗</a></div>
+    </article>
+
+    <article class="receipt" id="trump-mail-voting" aria-label="Donald Trump on mail-in voting">
+      <p class="receipt-who">Donald Trump <span class="topic">on democracy</span></p>
+      <div class="receipt-label">Said · April 7, 2020</div>
+      <h2>“There's a lot of dishonesty going along with mail-in voting.”</h2>
+      <p class="receipt-attrib">On mail voting · reported by NBC News</p>
+      <figure class="receipt-evidence"><a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer" aria-label="Read NBC News's report containing Trump's April 7 quote"><img src="./assets/nbc-2020-trump-quote.webp" width="850" height="408" loading="lazy" alt="NBC News article body, April 10, 2020, showing Trump's April 7 quotation about dishonesty in mail-in voting"></a><figcaption>NBC News reporting the April 7 statement.</figcaption></figure>
+      <div class="receipt-label then">Then · October 2026</div>
+      <p class="receipt-outcome">“Vote early, vote by mail or vote in-person on Election Day, November 3rd.”</p>
+      <p class="receipt-sting">The mail is suspect—unless the ballot has an R on it.</p>
+      <p class="receipt-context">He hasn't withdrawn his fraud claims. He's now telling supporters to use the same voting method he spent years attacking.</p>
+      <div class="receipt-actions">
+        <a class="watch" href="https://www.instagram.com/reel/DeIFwsBv0Vq/" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></svg>Watch · CBS News clip</a>
+        <details class="sources">
+          <summary>Sources (4)</summary>
+          <ol>
+            <li><span class="date">Apr 10, 2020</span><a href="https://www.nbcnews.com/politics/donald-trump/trump-pushes-false-claims-about-mail-vote-fraud-here-are-n1180566" target="_blank" rel="noopener noreferrer">NBC News — Trump pushes false claims about mail-in vote fraud</a></li>
+            <li><span class="date">Aug 19, 2025</span><a href="https://www.cbsnews.com/news/trump-ban-mail-in-voting-before-2026-midterm-elections/" target="_blank" rel="noopener noreferrer">CBS News — Trump vows to try banning mail-in voting</a></li>
+            <li><span class="date">Oct 6, 2026</span><a href="https://www.reuters.com/world/us/trump-urges-supporters-vote-by-mail-despite-fraud-claims-2026-10-06/" target="_blank" rel="noopener noreferrer">Reuters — Trump urges supporters to vote by mail</a></li>
+            <li><span class="date">Oct 7, 2026</span><a href="https://caplinnews.fiu.edu/trump-republicans-mail-in-voting-early-voting-midterms-supreme-court-paul-mitchell/" target="_blank" rel="noopener noreferrer">Caplin News — Trump encourages Republicans to vote by mail</a></li>
+          </ol>
+        </details>
       </div>
     </article>
     <section id="archive" aria-labelledby="archive-title">

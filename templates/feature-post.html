@@ -1,20 +1,28 @@
-<!-- Copy this whole article into index.html before <section id="archive">. Replace every placeholder; do not publish a partially filled post. Keep the shared .feature styles rather than inventing a new layout. -->
-<article class="feature secondary-feature" id="STORY-SLUG" aria-label="PERSON on SUBJECT">
-  <div class="feature-left">
-    <div class="story-meta"><span>PERSON</span><span class="dot"></span><span>CATEGORY</span></div>
-    <div class="claim-kicker">ORIGINAL DATE · ORIGINAL CONTEXT</div>
-    <h2>“EXACT ORIGINAL QUOTE”</h2>
-    <figure class="source-image"><a href="ORIGINAL-SOURCE-URL" target="_blank" rel="noopener noreferrer" aria-label="Read the original source"><img src="./assets/ORIGINAL-VISUAL.webp" loading="lazy" alt="Accurate description of the original-source image"></a><figcaption>Accurate description of the image and its provenance · <a style="display:inline" href="ORIGINAL-SOURCE-URL" target="_blank" rel="noopener noreferrer">Read the source ↗</a></figcaption></figure>
-    <div class="old-reports" aria-label="Reporting from the original period">
-      <figure><a href="ORIGINAL-REPORT-URL" target="_blank" rel="noopener noreferrer" aria-label="Read the original-period report"><img src="./assets/ORIGINAL-HEADLINE.webp" loading="lazy" alt="Outlet, date, and actual screenshot headline"></a><figcaption>OUTLET · DATE — <a href="ORIGINAL-REPORT-URL" target="_blank" rel="noopener noreferrer">Read the report ↗</a></figcaption></figure>
-    </div>
-  </div>
-  <div class="feature-right">
-    <div class="receipt-kicker">What happened · OUTCOME DATE</div>
-    <p>PRECISE, SOURCED LATER OUTCOME</p>
-    <figure class="headline-shot"><a href="OUTCOME-REPORT-URL" target="_blank" rel="noopener noreferrer" aria-label="Read the outcome report"><img src="./assets/OUTCOME-HEADLINE.webp" loading="lazy" alt="Outlet, date, and actual screenshot headline"></a><figcaption>OUTLET · DATE — <a href="OUTCOME-REPORT-URL" target="_blank" rel="noopener noreferrer">Read the full report ↗</a></figcaption></figure>
-    <p class="sting">SHORT, FAIR EDITORIAL TAKE</p>
-    <aside class="feature-reel" aria-label="Relevant story video"><h3>Video · PUBLISHER</h3><iframe src="RELEVANT-VIDEO-EMBED-URL" title="Descriptive video title" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="RELEVANT-VIDEO-POST-URL" target="_blank" rel="noopener noreferrer">Open original video ↗</a></aside>
-    <div class="source-links"><a href="ORIGINAL-SOURCE-URL" target="_blank" rel="noopener noreferrer">Original quote ↗</a><a href="OUTCOME-REPORT-URL" target="_blank" rel="noopener noreferrer">Later outcome ↗</a></div>
+<!-- New Latest receipt. Insert inside <main>, above #archive (newest first). Replace every placeholder. Omit optional figure/video when genuine evidence is unavailable. -->
+<article class="receipt" id="{person-topic-slug}" aria-label="{Person} on {topic}">
+  <p class="receipt-who">{Person Name} <span class="topic">on {topic}</span></p>
+  <div class="receipt-label">Said · {Month D, YYYY}</div>
+  <h2>“{Exact original quote.}”</h2>
+  <p class="receipt-attrib">{Original venue or outlet}</p>
+
+  <!-- One genuine source image, linked to the page/document it actually depicts. -->
+  <figure class="receipt-evidence"><a href="{source URL}" target="_blank" rel="noopener noreferrer" aria-label="{What the link opens}"><img src="./assets/{file}.webp" width="{w}" height="{h}" loading="lazy" alt="{Describe the image accurately}"></a><figcaption>{Short provenance caption.}</figcaption></figure>
+
+  <div class="receipt-label then">Then · {Month D, YYYY}</div>
+  <p class="receipt-outcome">{Precisely sourced later outcome. Use <strong>bold</strong> for the key figure.}</p>
+  <p class="receipt-sting">{Fair editorial punchline, one or two sentences.}</p>
+  <p class="receipt-context">{Optional timing, appeal, or attribution caveat. Delete if unnecessary.}</p>
+
+  <div class="receipt-actions">
+    <!-- Optional relevant publisher video link; do not embed. -->
+    <a class="watch" href="{video URL}" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></svg>Watch · {Outlet} clip</a>
+    <details class="sources">
+      <summary>Sources ({n})</summary>
+      <ol>
+        <!-- Oldest first; count links accurately. -->
+        <li><span class="date">{Mon D, YYYY}</span><a href="{URL}" target="_blank" rel="noopener noreferrer">{Outlet} — {what it shows}</a></li>
+        <li><span class="date">{Mon D, YYYY}</span><a href="{URL}" target="_blank" rel="noopener noreferrer">{Outlet} — {what it shows}</a></li>
+      </ol>
+    </details>
   </div>
 </article>
