@@ -11,3 +11,7 @@ The three `<article class="receipt">` posts in `index.html` are the reference. N
 5. Use the existing CSS and colors. One image per receipt is the visual limit; additional contemporaneous and later headlines belong as links in Sources. Keep image alt text and caption honest.
 
 Before pushing: check the quote and outcome against their linked sources; verify images and links; test desktop (1440px), tablet (768px), and mobile (390px) for no horizontal scroll; open/close Sources and check counts; test Archive filters/search; confirm no console errors. After pushing, verify GitHub Pages built and the live site, images, and deep links work. The Archive remains separate and unchanged.
+
+## Daily publishing queue
+
+Vetted upcoming receipts live as HTML fragments in `drafts/` with genuinely sourced assets in `assets/`. Add an entry to `drafts/queue.json` with the exact post ID, draft path, and timezone-aware `publish_at` timestamp; commit and push the draft, asset, and manifest, but do not add the post to `index.html` yet. Run `python3 -B scripts/publish_receipt_queue.py --dry-run` to validate the queued item. The daily no-agent scheduler checks at **08:00 Europe/Paris** (06:00 UTC in summer, 07:00 UTC in winter), publishes at most one due unpublished receipt, and stays silent when the queue is empty. It verifies the live first post after pushing. For a missed same-day window, `--run-due-now` is an explicit manual catch-up; do not run the scheduled job early. Published IDs remain in the manifest as an audit trail and are ignored on later runs.
