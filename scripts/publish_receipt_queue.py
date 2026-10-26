@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish at most one vetted receipt from drafts/queue.json at 08:00 Paris time."""
+"""Publish at most one vetted receipt from drafts/queue.json on weekday mornings."""
 from __future__ import annotations
 
 import argparse
@@ -51,6 +51,9 @@ def selected_entry(now: datetime, published: str) -> dict | None:
         date = datetime.fromisoformat(entry['publish_at'])
         if date.tzinfo is None:
             raise ValueError(f"Missing timezone in {entry['id']}")
+        local_date = date.astimezone(PARIS)
+        if local_date.weekday() >= 5 or local_date.hour != 8 or local_date.minute != 0:
+            raise ValueError(f"Queued post must target 08:00 on a Paris weekday: {entry['id']}")
         if date <= now and f'id="{entry["id"]}"' not in published:
             due.append((date, entry))
     return sorted(due, key=lambda pair: pair[0])[0][1] if due else None
@@ -63,8 +66,8 @@ def main() -> None:
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
     local = now.astimezone(PARIS)
-    if not args.dry_run and not args.run_due_now and local.hour != 8:
-        return  # cron ticks at both candidate UTC hours; only 08:00 Paris publishes
+    if not args.dry_run and not args.run_due_now and (local.weekday() >= 5 or local.hour != 8):
+        return  # UTC candidate ticks; only 08:00 Paris on weekdays publishes
     if git('branch', '--show-current') != 'main':
         raise RuntimeError('Expected the main branch')
     if git('status', '--porcelain'):
