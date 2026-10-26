@@ -39,7 +39,7 @@ def live_has_first(post_id: str) -> bool:
         return False
 
 
-def selected_entry(now: datetime, published: str) -> dict | None:
+def selected_entry(now: datetime, published: str, include_future: bool = False) -> dict | None:
     entries = json.loads(MANIFEST.read_text())['queue']
     if not isinstance(entries, list):
         raise ValueError('queue must be a list')
@@ -54,7 +54,7 @@ def selected_entry(now: datetime, published: str) -> dict | None:
         local_date = date.astimezone(PARIS)
         if local_date.weekday() >= 5 or local_date.hour != 8 or local_date.minute != 0:
             raise ValueError(f"Queued post must target 08:00 on a Paris weekday: {entry['id']}")
-        if date <= now and f'id="{entry["id"]}"' not in published:
+        if (include_future or date <= now) and f'id="{entry["id"]}"' not in published:
             due.append((date, entry))
     return sorted(due, key=lambda pair: pair[0])[0][1] if due else None
 
@@ -79,7 +79,7 @@ def main() -> None:
     else:
         git('pull', '--ff-only', 'origin', 'main')
     html = INDEX.read_text()
-    entry = selected_entry(now, html)
+    entry = selected_entry(now, html, include_future=args.dry_run)
     if entry is None:
         if args.dry_run:
             print('DRY RUN PASS: queue is empty or has no due unpublished receipts')
@@ -104,7 +104,7 @@ def main() -> None:
     if updated.count(f'id="{post_id}"') != 1 or updated.count(marker) != html.count(marker) + 1:
         raise RuntimeError('Unexpected feed count after insertion')
     if args.dry_run:
-        print(f'DRY RUN PASS: ready to publish {post_id}; clean/synced main, draft, sources, image verified')
+        print(f'DRY RUN PASS: {post_id} queued for {entry["publish_at"]}; clean/synced main, draft, sources, image verified')
         return
     INDEX.write_text(updated)
     git('diff', '--check')
