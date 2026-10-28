@@ -1,5 +1,9 @@
 # Latest receipt standard (current)
 
+## Who qualifies
+
+Cover billionaires **and public figures with a credible, independently reported personal fortune of at least $100 million** (centimillionaires). Jared Kushner is a candidate, but verify his own qualifying wealth and the exact statement/outcome before writing; do not assign a relative's fortune to him. Do not require the person to be a billionaire, and do not casually call a centimillionaire one. The site title remains the existing brand, not a claim that every subject has a ten-figure net worth. Rotate subjects: after repeated Musk/Trump/Zuckerberg stories, actively seek a different eligible person. Evidence strength beats a quota or a weak "gotcha."
+
 The three `<article class="receipt">` posts in `index.html` are the reference. New receipts belong inside `<main>`, above `#archive` (newest first), not as short Archive entries. Start with `templates/feature-post.html`. The site uses a centered, single-column reading flow on desktop and mobile; do not restore two-column cards or screenshot galleries.
 
 ## Required before publishing
