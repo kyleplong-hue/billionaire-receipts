@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARIS = ZoneInfo('Europe/Paris')
 INDEX = ROOT / 'index.html'
 MANIFEST = ROOT / 'drafts' / 'queue.json'
+SITE = f'https://{(ROOT / "CNAME").read_text().strip()}'
 
 
 def git(*args: str) -> str:
@@ -27,7 +28,7 @@ def git(*args: str) -> str:
 
 def live_has_first(post_id: str) -> bool:
     request = urllib.request.Request(
-        f'https://receipts.newslings.xyz/?queue={int(time.time())}',
+        f'{SITE}/?queue={int(time.time())}',
         headers={'Cache-Control': 'no-cache', 'User-Agent': 'Receipts queue publisher'},
     )
     try:
@@ -114,10 +115,10 @@ def main() -> None:
     commit = git('rev-parse', '--short', 'HEAD')
     for _ in range(9):
         if live_has_first(post_id):
-            print(f'Published and verified https://receipts.newslings.xyz/#{post_id} (commit {commit})')
+            print(f'Published and verified {SITE}/#{post_id} (commit {commit})')
             return
         time.sleep(10)
-    raise RuntimeError(f'Pushed {commit} but live site not updated within 90 seconds; verify https://receipts.newslings.xyz/#{post_id}')
+    raise RuntimeError(f'Pushed {commit} but live site not updated within 90 seconds; verify {SITE}/#{post_id}')
 
 
 if __name__ == '__main__':
