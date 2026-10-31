@@ -13,7 +13,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 ID = 'musk-optimus-timeline'
-URL = f'https://receipts.newslings.xyz/#{ID}'
+SITE = f'https://{(ROOT / "CNAME").read_text().strip()}'
+URL = f'{SITE}/#{ID}'
 RELEASE = datetime(2026, 10, 23, 9, 0, tzinfo=ZoneInfo('Europe/Paris'))
 DRAFT = ROOT / 'drafts' / 'optimus-2026.html'
 INDEX = ROOT / 'index.html'
@@ -27,7 +28,7 @@ def git(*args: str) -> str:
 
 def live_contains_post() -> bool:
     request = urllib.request.Request(
-        f'https://receipts.newslings.xyz/?release={int(time.time())}',
+        f'{SITE}/?release={int(time.time())}',
         headers={'Cache-Control': 'no-cache', 'User-Agent': 'Receipts scheduled publisher'},
     )
     try:
