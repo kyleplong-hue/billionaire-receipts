@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import json
 import re
@@ -60,6 +60,19 @@ def selected_entry(now: datetime, published: str, include_future: bool = False) 
     return sorted(due, key=lambda pair: pair[0])[0][1] if due else None
 
 
+def validate_news_peg(entry: dict, draft: str) -> None:
+    post_id = entry['id']
+    # Mechanical freshness gate; the editorial scout still checks material relevance.
+    if not entry.get('news_peg_date') or not entry.get('news_peg_url'):
+        raise ValueError(f'Missing dated news peg: {post_id}')
+    news_date = date.fromisoformat(entry['news_peg_date'])
+    publish_date = datetime.fromisoformat(entry['publish_at']).astimezone(PARIS).date()
+    if not publish_date - timedelta(days=7) <= news_date <= publish_date:
+        raise ValueError(f'News peg outside publication week: {post_id}')
+    if not entry['news_peg_url'].startswith('https://') or entry['news_peg_url'].replace('&', '&amp;') not in draft:
+        raise ValueError(f'News peg source not linked in draft: {post_id}')
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true', help='validate without writing')
@@ -92,6 +105,7 @@ def main() -> None:
     draft = draft_path.read_text()
     if draft.count(f'id="{post_id}"') != 1 or draft.count('<article class="receipt"') != 1:
         raise ValueError(f'Invalid receipt markup: {post_id}')
+    validate_news_peg(entry, draft)
     match = re.search(r'<summary>Sources \((\d+)\)</summary>\s*<ol>(.*?)</ol>', draft, re.S)
     if not match or int(match.group(1)) != match.group(2).count('<li>'):
         raise ValueError(f'Sources count mismatch: {post_id}')
