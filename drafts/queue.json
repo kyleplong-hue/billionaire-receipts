@@ -38,6 +38,13 @@
       "publish_at": "2026-11-05T08:00:00+01:00",
       "news_peg_date": "2026-11-04",
       "news_peg_url": "https://www.theguardian.com/us-news/2026/nov/04/midterm-election-takeaways-trump"
+    },
+    {
+      "id": "ramaswamy-ohio-governor-2026",
+      "draft": "drafts/ramaswamy-ohio-governor-2026.html",
+      "publish_at": "2026-11-09T08:00:00+01:00",
+      "news_peg_date": "2026-11-05",
+      "news_peg_url": "https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"
     }
   ]
 }
