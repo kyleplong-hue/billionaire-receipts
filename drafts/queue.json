@@ -45,6 +45,13 @@
       "publish_at": "2026-11-09T08:00:00+01:00",
       "news_peg_date": "2026-11-05",
       "news_peg_url": "https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"
+    },
+    {
+      "id": "musk-cybertruck-winddown-2026",
+      "draft": "drafts/musk-cybertruck-winddown-2026.html",
+      "publish_at": "2026-11-10T08:00:00+01:00",
+      "news_peg_date": "2026-11-09",
+      "news_peg_url": "https://www.reuters.com/business/autos-transportation/tesla-refund-many-cybertruck-deposits-demand-exceeds-production-musk-says-2026-11-09/"
     }
   ]
 }
