@@ -52,6 +52,13 @@
       "publish_at": "2026-11-10T08:00:00+01:00",
       "news_peg_date": "2026-11-09",
       "news_peg_url": "https://www.reuters.com/business/autos-transportation/tesla-refund-many-cybertruck-deposits-demand-exceeds-production-musk-says-2026-11-09/"
+    },
+    {
+      "id": "bezos-new-glenn-december-delay-2026",
+      "draft": "drafts/bezos-new-glenn-december-delay-2026.html",
+      "publish_at": "2026-11-11T08:00:00+01:00",
+      "news_peg_date": "2026-11-05",
+      "news_peg_url": "https://www.reuters.com/science/blue-origin-delays-new-glenn-rocket-launch-into-january-ft-reports-2026-11-05/"
     }
   ]
 }
