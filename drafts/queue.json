@@ -59,6 +59,13 @@
       "publish_at": "2026-11-11T08:00:00+01:00",
       "news_peg_date": "2026-11-05",
       "news_peg_url": "https://www.reuters.com/science/blue-origin-delays-new-glenn-rocket-launch-into-january-ft-reports-2026-11-05/"
+    },
+    {
+      "id": "trump-inflation-october-cpi-2026",
+      "draft": "drafts/trump-inflation-october-cpi-2026.html",
+      "publish_at": "2026-11-12T08:00:00+01:00",
+      "news_peg_date": "2026-11-10",
+      "news_peg_url": "https://www.reuters.com/world/us/us-consumer-prices-rise-above-expectations-october-2026-11-10/"
     }
   ]
 }
