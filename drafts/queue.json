@@ -73,6 +73,13 @@
       "publish_at": "2026-11-13T08:00:00+01:00",
       "news_peg_date": "2026-11-11",
       "news_peg_url": "https://www.reuters.com/business/msci-drop-strategy-global-indexes-putting-billions-passive-fund-inflows-risk-2026-11-11/"
+    },
+    {
+      "id": "musk-political-spending-midterms-2026",
+      "draft": "drafts/musk-political-spending-midterms-2026.html",
+      "publish_at": "2026-11-20T08:00:00+01:00",
+      "news_peg_date": "2026-11-18",
+      "news_peg_url": "https://abcnews.com/Politics/musk-regrets-500-million-midterm-elections-spending-hes/story?id=138270985"
     }
   ]
 }
