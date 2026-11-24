@@ -80,6 +80,13 @@
       "publish_at": "2026-11-20T08:00:00+01:00",
       "news_peg_date": "2026-11-18",
       "news_peg_url": "https://abcnews.com/Politics/musk-regrets-500-million-midterm-elections-spending-hes/story?id=138270985"
+    },
+    {
+      "id": "jones-huang-reinstatement-2026",
+      "draft": "drafts/jones-huang-reinstatement-2026.html",
+      "publish_at": "2026-11-25T08:00:00+01:00",
+      "news_peg_date": "2026-11-23",
+      "news_peg_url": "https://www.reuters.com/technology/nvidia-reinstates-jensen-huang-ceo-2026-11-23/"
     }
   ]
 }
